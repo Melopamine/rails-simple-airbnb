@@ -1,0 +1,14 @@
+<div class="container">
+  <h1><%= @flat.name %></h1>
+  <img src="<%= @flat.picture_url %>" alt="Flat Image" class="card-img-top">
+  <p><%= @flat.address %></p>
+  <p><%= @flat.description %></p>
+  <p><%= number_to_currency(@flat.price_per_night) %> per night</p>
+  <p>Number of guests: <%= @flat.number_of_guests %></p>
+  <%= link_to 'Back to All Flats', flats_path, class: 'btn btn-secondary' %>
+  <%= link_to 'Edit', edit_flat_path(@flat), class: 'btn btn-primary' %>
+  <%= link_to "Delete",
+        flat_path(@flat),
+        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+      %>
+</div>
